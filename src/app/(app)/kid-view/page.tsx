@@ -54,19 +54,20 @@ export default function KidViewPage() {
   return (
     <div className="space-y-8 pb-16 max-w-5xl mx-auto">
       {/* 1. Parent Preview Banner */}
-      <div className="p-3.5 rounded-2xl bg-gradient-to-r from-brand-navy to-brand-navyDark text-white flex flex-col sm:flex-row items-center justify-between gap-3 shadow-md">
-        <div className="flex items-center gap-2 text-xs">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-          <span className="font-bold">Parent Preview Mode:</span>
-          <span className="text-slate-300">You are currently previewing the Kid Space experience.</span>
+      <div className="p-3.5 rounded-2xl bg-gradient-to-r from-brand-navy to-brand-navyDark text-white flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 shadow-md">
+        <div className="flex items-start sm:items-center gap-2 text-xs min-w-0">
+          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping shrink-0 mt-1.5 sm:mt-0" />
+          <div className="min-w-0">
+            <span className="font-bold">Parent Preview Mode:</span>{' '}
+            <span className="text-slate-300">Previewing Kid Space.</span>
+          </div>
         </div>
 
-        <div className="flex items-center gap-2">
-          {/* Switch child profile */}
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full sm:w-auto min-w-0">
           <select
             value={activeChildId}
             onChange={(e) => setActiveChildId(e.target.value)}
-            className="min-h-[44px] bg-white/15 text-white text-base sm:text-xs font-bold px-3 py-1.5 rounded-xl border border-white/20 focus:outline-none"
+            className="min-h-[44px] min-w-0 flex-1 bg-white/15 text-white text-base sm:text-xs font-bold px-3 py-1.5 rounded-xl border border-white/20 focus:outline-none"
           >
             {state.profiles.filter((p) => p.isChild).map((c) => (
               <option key={c.id} value={c.id} className="text-brand-navy">
@@ -77,10 +78,11 @@ export default function KidViewPage() {
 
           <Link
             href="/dashboard"
-            className="min-h-[44px] px-3.5 py-1.5 rounded-xl bg-brand-sky hover:bg-brand-blue text-white text-xs font-bold inline-flex items-center gap-1 transition-colors"
+            className="min-h-[44px] px-3.5 py-1.5 rounded-xl bg-brand-sky hover:bg-brand-blue text-white text-xs font-bold inline-flex items-center justify-center gap-1 transition-colors shrink-0"
           >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            <span>Exit to Parent View</span>
+            <ArrowLeft className="w-3.5 h-3.5 shrink-0" />
+            <span className="sm:hidden">Exit</span>
+            <span className="hidden sm:inline">Exit to Parent View</span>
           </Link>
         </div>
       </div>
@@ -103,7 +105,7 @@ export default function KidViewPage() {
             <Smile className="w-3.5 h-3.5" />
             <span>Hello, {currentChild.displayName}!</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-serif font-bold">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold">
             <TextReveal text="Ready to earn some stars today?" />
           </h1>
           <p className="text-xs sm:text-sm text-sky-100 max-w-md">

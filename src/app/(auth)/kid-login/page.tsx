@@ -62,7 +62,7 @@ export default function KidLoginPage() {
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white dark:bg-[#1E293B] py-8 px-6 sm:px-10 shadow-xl rounded-3xl border-2 border-brand-sky/30 dark:border-brand-sky/20 space-y-6">
+        <div className="bg-white dark:bg-[#1E293B] p-4 sm:p-6 sm:px-10 sm:py-8 shadow-xl rounded-3xl border-2 border-brand-sky/30 dark:border-brand-sky/20 space-y-6">
           {/* Quick profile switch */}
           <div className="space-y-1.5">
             <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Select Profile</div>

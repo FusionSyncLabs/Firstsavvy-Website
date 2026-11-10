@@ -54,27 +54,29 @@ export default function CalendarPage() {
           </h1>
         </div>
 
-        <div className="flex items-center gap-3">
-          <div className="flex bg-slate-100 dark:bg-slate-800 p-1 rounded-xl text-xs font-bold">
+        <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2 sm:gap-3 w-full sm:w-auto">
+          <div className="flex bg-slate-100 dark:bg-slate-800 p-1 rounded-xl text-xs font-bold w-full sm:w-auto">
             <button
               onClick={() => setViewMode('month')}
-              className={`min-h-[44px] px-3 py-1.5 rounded-lg transition-colors ${viewMode === 'month' ? 'bg-white dark:bg-slate-700 text-brand-navy dark:text-white shadow-xs' : 'text-slate-500'}`}
+              className={`flex-1 sm:flex-none min-h-[44px] px-3 py-1.5 rounded-lg transition-colors ${viewMode === 'month' ? 'bg-white dark:bg-slate-700 text-brand-navy dark:text-white shadow-xs' : 'text-slate-500'}`}
             >
-              Month View
+              <span className="sm:hidden">Month</span>
+              <span className="hidden sm:inline">Month View</span>
             </button>
             <button
               onClick={() => setViewMode('day')}
-              className={`min-h-[44px] px-3 py-1.5 rounded-lg transition-colors ${viewMode === 'day' ? 'bg-white dark:bg-slate-700 text-brand-navy dark:text-white shadow-xs' : 'text-slate-500'}`}
+              className={`flex-1 sm:flex-none min-h-[44px] px-3 py-1.5 rounded-lg transition-colors ${viewMode === 'day' ? 'bg-white dark:bg-slate-700 text-brand-navy dark:text-white shadow-xs' : 'text-slate-500'}`}
             >
-              Day View
+              <span className="sm:hidden">Day</span>
+              <span className="hidden sm:inline">Day View</span>
             </button>
           </div>
 
           <button
             onClick={() => setEventModalOpen(true)}
-            className="min-h-[44px] px-4 py-2.5 rounded-xl bg-brand-navy hover:bg-brand-navyDark text-white text-xs font-bold inline-flex items-center gap-2 shadow-sm"
+            className="min-h-[44px] w-full sm:w-auto px-4 py-2.5 rounded-xl bg-brand-navy hover:bg-brand-navyDark text-white text-xs font-bold inline-flex items-center justify-center gap-2 shadow-sm"
           >
-            <Plus className="w-3.5 h-3.5 text-brand-sky" />
+            <Plus className="w-3.5 h-3.5 text-brand-sky shrink-0" />
             <span>Add Event / Bill</span>
           </button>
         </div>

@@ -113,7 +113,7 @@ export default function SettingsPage() {
             <h3 className="font-serif font-bold text-base text-brand-navy dark:text-white">Household Configuration</h3>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
             <div className="space-y-1">
               <label className="font-bold text-brand-navy dark:text-slate-200">Household Name</label>
               <input

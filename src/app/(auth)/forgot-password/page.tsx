@@ -27,7 +27,7 @@ export default function ForgotPasswordPage() {
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white dark:bg-[#1E293B] py-8 px-6 sm:px-10 shadow-xl rounded-3xl border border-slate-200 dark:border-slate-800 space-y-6">
+        <div className="bg-white dark:bg-[#1E293B] p-4 sm:p-6 sm:px-10 sm:py-8 shadow-xl rounded-3xl border border-slate-200 dark:border-slate-800 space-y-6">
           {submitted ? (
             <div className="text-center space-y-4">
               <div className="w-12 h-12 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto">

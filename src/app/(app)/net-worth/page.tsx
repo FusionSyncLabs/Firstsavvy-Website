@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useFirstSavvyStore } from '@/lib/store';
 import { formatMoney, calculateNetWorth } from '@/lib/utils/format';
 import { 
@@ -28,6 +28,15 @@ import {
 export default function NetWorthPage() {
   const { state } = useFirstSavvyStore();
   const [viewScope, setViewScope] = useState<'household' | 'individual'>('household');
+  const [hideYAxis, setHideYAxis] = useState(false);
+
+  useEffect(() => {
+    const mql = window.matchMedia('(max-width: 639px)');
+    const sync = () => setHideYAxis(mql.matches);
+    sync();
+    mql.addEventListener('change', sync);
+    return () => mql.removeEventListener('change', sync);
+  }, []);
 
   const relevantAccounts = viewScope === 'household'
     ? state.accounts
@@ -87,7 +96,7 @@ export default function NetWorthPage() {
       </div>
 
       {/* 2. Top Summary Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="p-5 rounded-2xl bg-white dark:bg-[#1E293B] border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
           <div className="text-xs text-slate-500 font-semibold">Total Net Worth</div>
           <div className="text-2xl font-bold text-brand-navy dark:text-white">
@@ -130,7 +139,7 @@ export default function NetWorthPage() {
             <span className="text-xs text-slate-400 font-mono">2026 Snapshots</span>
           </div>
 
-          <div className="h-72 w-full pt-4">
+          <div className="h-56 sm:h-64 lg:h-72 w-full pt-4">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={chartData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
                 <defs>
@@ -141,10 +150,12 @@ export default function NetWorthPage() {
                 </defs>
                 <XAxis dataKey="name" stroke="#94A3B8" fontSize={11} tickLine={false} />
                 <YAxis
+                  hide={hideYAxis}
                   stroke="#94A3B8"
                   fontSize={11}
                   tickLine={false}
                   axisLine={false}
+                  width={40}
                   tickFormatter={(val) => `$${(val / 1000).toFixed(0)}k`}
                 />
                 <Tooltip

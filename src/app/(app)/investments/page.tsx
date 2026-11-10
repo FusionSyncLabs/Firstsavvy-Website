@@ -41,10 +41,13 @@ export default function InvestmentsPage() {
           </h1>
         </div>
 
-        <div className="flex items-center gap-3">
-          <div className="text-xs text-slate-500 flex items-center gap-1.5 bg-white dark:bg-slate-800 px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700">
-            <Clock className="w-3.5 h-3.5 text-brand-sky" />
-            <span>Prices as of Market Close • Market Index IRA</span>
+        <div className="flex items-center gap-3 min-w-0 max-w-full">
+          <div className="text-xs text-slate-500 flex items-center gap-1.5 bg-white dark:bg-slate-800 px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 min-w-0 max-w-full">
+            <Clock className="w-3.5 h-3.5 text-brand-sky shrink-0" />
+            <span className="truncate">
+              <span className="sm:hidden">Market close prices</span>
+              <span className="hidden sm:inline">Prices as of Market Close • Market Index IRA</span>
+            </span>
           </div>
         </div>
       </div>
@@ -101,7 +104,7 @@ export default function InvestmentsPage() {
           </div>
         </div>
 
-        <div className="overflow-x-auto overscroll-x-contain">
+        <div className="-mx-4 sm:mx-0 overflow-x-auto overscroll-x-contain">
           <table className="w-full min-w-[640px] text-left text-xs sm:text-sm">
             <thead>
               <tr className="border-b border-slate-200 dark:border-slate-700 text-slate-400 font-bold uppercase tracking-wider">

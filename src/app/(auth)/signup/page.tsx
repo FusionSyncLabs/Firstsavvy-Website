@@ -133,7 +133,7 @@ export default function SignupPage() {
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white dark:bg-[#1E293B] py-8 px-6 sm:px-10 shadow-xl rounded-3xl border border-slate-200 dark:border-slate-800 space-y-6">
+        <div className="bg-white dark:bg-[#1E293B] p-4 sm:p-6 sm:px-10 sm:py-8 shadow-xl rounded-3xl border border-slate-200 dark:border-slate-800 space-y-6">
           {error && (
             <div className="p-3 rounded-xl bg-rose-50 dark:bg-rose-950/50 border border-rose-200 text-xs text-rose-700 dark:text-rose-300 flex items-center gap-2">
               <AlertCircle className="w-4 h-4 shrink-0" />
@@ -144,7 +144,7 @@ export default function SignupPage() {
           {/* STEP 1: ACCOUNT CREDENTIALS */}
           {step === 1 && (
             <form onSubmit={handleStep1} className="space-y-4">
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="space-y-1">
                   <label className="text-xs font-bold text-brand-navy dark:text-slate-200">First Name</label>
                   <input

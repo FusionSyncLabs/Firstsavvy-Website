@@ -152,57 +152,59 @@ export default function BankingPage() {
           </h1>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2 sm:gap-3 w-full sm:w-auto">
           <button
             onClick={() => setPlaidModalOpen(true)}
-            className="min-h-[44px] px-4 py-2.5 rounded-xl bg-brand-navy hover:bg-brand-navyDark text-white text-xs font-bold inline-flex items-center gap-2 shadow-sm"
+            className="min-h-[44px] w-full sm:w-auto px-4 py-2.5 rounded-xl bg-brand-navy hover:bg-brand-navyDark text-white text-xs font-bold inline-flex items-center justify-center gap-2 shadow-sm"
           >
-            <Building2 className="w-3.5 h-3.5 text-brand-sky" />
+            <Building2 className="w-3.5 h-3.5 text-brand-sky shrink-0" />
             <span>Connect Bank (Plaid)</span>
           </button>
 
           <button
             onClick={() => setManualModalOpen(true)}
-            className="min-h-[44px] px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-brand-navy dark:text-white inline-flex items-center gap-2"
+            className="min-h-[44px] w-full sm:w-auto px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-brand-navy dark:text-white inline-flex items-center justify-center gap-2"
           >
-            <Plus className="w-3.5 h-3.5" />
+            <Plus className="w-3.5 h-3.5 shrink-0" />
             <span>Add Manual Asset</span>
           </button>
         </div>
       </div>
 
-      {/* Subtabs Bar */}
-      <div className="flex gap-2 border-b border-slate-200 dark:border-slate-800 pb-2 overflow-x-auto">
-        {[
-          { id: 'accounts', label: 'Accounts Overview', count: state.accounts.length },
-          { id: 'transactions', label: 'Transactions', count: state.transactions.length },
-          { id: 'spending', label: 'Spending Trends' },
-          { id: 'rules', label: 'Transaction Rules', count: state.rules.length },
-          { id: 'recurring', label: 'Recurring & Bills', count: state.recurring.length },
-        ].map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => setActiveTab(tab.id as any)}
-            className={`min-h-[44px] px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-colors flex items-center gap-2 ${
-              activeTab === tab.id
-                ? 'bg-brand-navy text-white shadow-xs dark:bg-brand-sky dark:text-slate-900'
-                : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
-            }`}
-          >
-            <span>{tab.label}</span>
-            {tab.count !== undefined && (
-              <span className={`text-[11px] px-1.5 py-0.5 rounded-full ${activeTab === tab.id ? 'bg-white/20' : 'bg-slate-200 dark:bg-slate-700'}`}>
-                {tab.count}
-              </span>
-            )}
-          </button>
-        ))}
+      {/* Subtabs Bar — full-bleed scroll on mobile */}
+      <div className="-mx-4 px-4 sm:mx-0 sm:px-0 border-b border-slate-200 dark:border-slate-800 pb-2 overflow-x-auto no-scrollbar overscroll-x-contain">
+        <div className="inline-flex min-w-max gap-2">
+          {[
+            { id: 'accounts', label: 'Accounts Overview', count: state.accounts.length },
+            { id: 'transactions', label: 'Transactions', count: state.transactions.length },
+            { id: 'spending', label: 'Spending Trends' },
+            { id: 'rules', label: 'Transaction Rules', count: state.rules.length },
+            { id: 'recurring', label: 'Recurring & Bills', count: state.recurring.length },
+          ].map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id as any)}
+              className={`shrink-0 min-h-[44px] px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-colors flex items-center gap-2 ${
+                activeTab === tab.id
+                  ? 'bg-brand-navy text-white shadow-xs dark:bg-brand-sky dark:text-slate-900'
+                  : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
+              }`}
+            >
+              <span>{tab.label}</span>
+              {tab.count !== undefined && (
+                <span className={`text-[11px] px-1.5 py-0.5 rounded-full ${activeTab === tab.id ? 'bg-white/20' : 'bg-slate-200 dark:bg-slate-700'}`}>
+                  {tab.count}
+                </span>
+              )}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* 2. SUBTAB: ACCOUNTS OVERVIEW */}
       {activeTab === 'accounts' && (
         <div className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {state.accounts.map((acc) => (
               <div
                 key={acc.id}
@@ -273,15 +275,15 @@ export default function BankingPage() {
 
           {/* Bulk Actions Bar (if selected) */}
           {selectedTxIds.length > 0 && (
-            <div className="p-3 rounded-xl bg-sky-50 dark:bg-sky-950/60 border border-brand-sky/30 flex items-center justify-between gap-3 text-xs">
-              <span className="font-bold text-brand-navy dark:text-slate-100">
+            <div className="p-3 rounded-xl bg-sky-50 dark:bg-sky-950/60 border border-brand-sky/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+              <span className="font-bold text-brand-navy dark:text-slate-100 shrink-0">
                 {selectedTxIds.length} transactions selected
               </span>
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2 min-w-0">
                 <select
                   value={bulkCategory}
                   onChange={(e) => setBulkCategory(e.target.value)}
-                  className="min-h-[44px] px-2.5 py-1.5 rounded-lg border border-slate-300 text-base sm:text-xs bg-white text-brand-navy"
+                  className="min-h-[44px] min-w-0 flex-1 sm:flex-none px-2.5 py-1.5 rounded-lg border border-slate-300 text-base sm:text-xs bg-white text-brand-navy"
                 >
                   <option value="">Choose category...</option>
                   {state.categories.map((c) => (
@@ -290,13 +292,14 @@ export default function BankingPage() {
                 </select>
                 <button
                   onClick={handleBulkCategorize}
-                  className="min-h-[36px] px-3 py-1.5 rounded-lg bg-brand-navy text-white text-xs font-bold"
+                  className="min-h-[44px] px-4 py-1.5 rounded-lg bg-brand-navy text-white text-xs font-bold"
                 >
                   Apply
                 </button>
                 <button
                   onClick={() => setSelectedTxIds([])}
-                  className="min-h-[44px] p-1 text-slate-400 hover:text-slate-600"
+                  className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center text-slate-400 hover:text-slate-600"
+                  aria-label="Clear selection"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -305,7 +308,7 @@ export default function BankingPage() {
           )}
 
           {/* Transactions Table */}
-          <div className="overflow-x-auto overscroll-x-contain">
+          <div className="-mx-4 sm:mx-0 overflow-x-auto overscroll-x-contain">
             <table className="w-full min-w-[640px] text-left text-xs sm:text-sm">
               <thead>
                 <tr className="border-b border-slate-200 dark:border-slate-700 text-slate-400 font-bold uppercase tracking-wider">

@@ -66,7 +66,7 @@ export default function IntegrationsPage() {
             className="p-6 rounded-3xl bg-white dark:bg-[#1E293B] border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
           >
             <div className="space-y-1">
-              <div className="flex items-center gap-3">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                 <h3 className="font-serif font-bold text-lg text-brand-navy dark:text-white">{item.name}</h3>
                 <span className={`text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full ${item.badgeColor}`}>
                   {item.badge}

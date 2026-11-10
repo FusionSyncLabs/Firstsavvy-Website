@@ -2,7 +2,7 @@
 
 import { AppDialog } from '@/components/app/AppDialog';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useFirstSavvyStore } from '@/lib/store';
 import { formatMoney, calculateNetWorth } from '@/lib/utils/format';
@@ -68,6 +68,15 @@ export default function DashboardPage() {
   const [newChoreCadence, setNewChoreCadence] = useState('Daily');
   const [newChoreStars, setNewChoreStars] = useState(3);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [hideDashYAxis, setHideDashYAxis] = useState(false);
+
+  useEffect(() => {
+    const mql = window.matchMedia('(max-width: 639px)');
+    const sync = () => setHideDashYAxis(mql.matches);
+    sync();
+    mql.addEventListener('change', sync);
+    return () => mql.removeEventListener('change', sync);
+  }, []);
 
   // Toggle chore completion
   const toggleChore = (choreId: string) => {
@@ -136,9 +145,9 @@ export default function DashboardPage() {
     <div className="space-y-6 pb-12 select-none">
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed top-20 right-6 z-50 bg-[#0C1929] border border-cyan-500/50 text-white px-4 py-3 rounded-2xl shadow-2xl shadow-cyan-500/20 flex items-center gap-3 animate-in fade-in slide-in-from-top-4 duration-200">
+        <div className="fixed top-20 left-4 right-4 sm:left-auto sm:right-6 z-50 max-w-sm sm:max-w-md bg-[#0C1929] border border-cyan-500/50 text-white px-4 py-3 rounded-2xl shadow-2xl shadow-cyan-500/20 flex items-center gap-3 animate-in fade-in slide-in-from-top-4 duration-200 min-w-0">
           <Sparkles className="w-5 h-5 text-amber-400 shrink-0" />
-          <span className="text-sm font-semibold">{toastMessage}</span>
+          <span className="text-sm font-semibold min-w-0 break-words">{toastMessage}</span>
         </div>
       )}
 
@@ -240,75 +249,75 @@ export default function DashboardPage() {
           <div className="space-y-2.5">
             {/* Row 1: Acme Corp Bi-Weekly Salary */}
             <div className="p-3.5 rounded-xl bg-[#08121E] border border-[#122238] flex items-center justify-between gap-3 hover:border-cyan-500/30 transition-colors">
-              <div>
-                <div className="font-bold text-sm text-white">
+              <div className="min-w-0">
+                <div className="font-bold text-sm text-white break-words">
                   Acme Corp Bi-Weekly Salary
                 </div>
                 <div className="text-xs text-slate-400 mt-0.5">
                   Income • Aug 22, 2026
                 </div>
               </div>
-              <div className="font-mono font-bold text-sm text-[#22C55E]">
+              <div className="font-mono font-bold text-sm text-[#22C55E] shrink-0">
                 +$4,750.00
               </div>
             </div>
 
             {/* Row 2: Fresh Market */}
             <div className="p-3.5 rounded-xl bg-[#08121E] border border-[#122238] flex items-center justify-between gap-3 hover:border-cyan-500/30 transition-colors">
-              <div>
-                <div className="font-bold text-sm text-white">
+              <div className="min-w-0">
+                <div className="font-bold text-sm text-white break-words">
                   Fresh Market — Midtown
                 </div>
                 <div className="text-xs text-slate-400 mt-0.5">
                   Groceries • Aug 21, 2026
                 </div>
               </div>
-              <div className="font-mono font-bold text-sm text-slate-200">
+              <div className="font-mono font-bold text-sm text-slate-200 shrink-0">
                 -$164.50
               </div>
             </div>
 
             {/* Row 3: Home Mortgage Escrow */}
             <div className="p-3.5 rounded-xl bg-[#08121E] border border-[#122238] flex items-center justify-between gap-3 hover:border-cyan-500/30 transition-colors">
-              <div>
-                <div className="font-bold text-sm text-white">
+              <div className="min-w-0">
+                <div className="font-bold text-sm text-white break-words">
                   Home Mortgage Escrow
                 </div>
                 <div className="text-xs text-slate-400 mt-0.5">
                   Housing • Aug 18, 2026
                 </div>
               </div>
-              <div className="font-mono font-bold text-sm text-slate-200">
+              <div className="font-mono font-bold text-sm text-slate-200 shrink-0">
                 -$1,850.00
               </div>
             </div>
 
             {/* Row 4: City Fuel */}
             <div className="p-3.5 rounded-xl bg-[#08121E] border border-[#122238] flex items-center justify-between gap-3 hover:border-cyan-500/30 transition-colors">
-              <div>
-                <div className="font-bold text-sm text-white">
+              <div className="min-w-0">
+                <div className="font-bold text-sm text-white break-words">
                   City Fuel — Station
                 </div>
                 <div className="text-xs text-slate-400 mt-0.5">
                   Vehicle & Gas • Aug 17, 2026
                 </div>
               </div>
-              <div className="font-mono font-bold text-sm text-slate-200">
+              <div className="font-mono font-bold text-sm text-slate-200 shrink-0">
                 -$58.40
               </div>
             </div>
 
             {/* Row 5: Trattoria Bella */}
             <div className="p-3.5 rounded-xl bg-[#08121E] border border-[#122238] flex items-center justify-between gap-3 hover:border-cyan-500/30 transition-colors">
-              <div>
-                <div className="font-bold text-sm text-white">
+              <div className="min-w-0">
+                <div className="font-bold text-sm text-white break-words">
                   Trattoria Bella — Family Dinner
                 </div>
                 <div className="text-xs text-slate-400 mt-0.5">
                   Dining • Aug 16, 2026
                 </div>
               </div>
-              <div className="font-mono font-bold text-sm text-slate-200">
+              <div className="font-mono font-bold text-sm text-slate-200 shrink-0">
                 -$86.20
               </div>
             </div>
@@ -376,14 +385,14 @@ export default function DashboardPage() {
           </div>
 
           {/* Bottom quick view for Leo's reward goal */}
-          <div className="p-3.5 rounded-xl bg-gradient-to-r from-amber-950/30 to-cyan-950/30 border border-amber-500/30 flex items-center justify-between text-xs mt-2">
-            <div className="flex items-center gap-2">
+          <div className="p-3.5 rounded-xl bg-gradient-to-r from-amber-950/30 to-cyan-950/30 border border-amber-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs mt-2">
+            <div className="flex items-center gap-2 min-w-0">
               <Gamepad2 className="w-4 h-4 text-amber-400 shrink-0" />
-              <span className="text-slate-300 font-medium">Goal: Gaming Console ({starBalance}/{targetStars}★)</span>
+              <span className="text-slate-300 font-medium min-w-0 break-words">Goal: Gaming Console ({starBalance}/{targetStars}★)</span>
             </div>
             <Link
               href="/kid-view"
-              className="font-bold text-cyan-400 hover:underline inline-flex min-h-[44px] items-center gap-1"
+              className="font-bold text-cyan-400 hover:underline inline-flex min-h-[44px] items-center gap-1 shrink-0"
             >
               <span>Kid View</span>
               <span>→</span>
@@ -394,8 +403,8 @@ export default function DashboardPage() {
 
       {/* 4. Optional Net Worth Growth Trend Chart */}
       <div className="bg-[#0C1826] border border-[#16273E] rounded-2xl p-5 sm:p-6 shadow-md space-y-4">
-        <div className="flex items-center justify-between">
-          <div>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div className="min-w-0">
             <h3 className="font-bold text-base text-white">
               Household Net Worth Trend
             </h3>
@@ -405,15 +414,15 @@ export default function DashboardPage() {
           </div>
           <Link
             href="/net-worth"
-            className="inline-flex min-h-[44px] items-center text-xs font-bold text-cyan-400 hover:text-cyan-300"
+            className="inline-flex min-h-[44px] items-center text-xs font-bold text-cyan-400 hover:text-cyan-300 shrink-0"
           >
             Full Analytics →
           </Link>
         </div>
 
-        <div className="h-56 w-full pt-2">
+        <div className="h-48 sm:h-56 w-full pt-2 min-w-0 overflow-hidden">
           <ResponsiveContainer width="100%" height="100%">
-            <AreaChart data={chartData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+            <AreaChart data={chartData} margin={{ top: 10, right: 8, left: 0, bottom: 0 }}>
               <defs>
                 <linearGradient id="netWorthGradient" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="5%" stopColor="#00B4D8" stopOpacity={0.4} />
@@ -422,10 +431,12 @@ export default function DashboardPage() {
               </defs>
               <XAxis dataKey="name" stroke="#64748B" fontSize={11} tickLine={false} />
               <YAxis
+                hide={hideDashYAxis}
                 stroke="#64748B"
                 fontSize={11}
                 tickLine={false}
                 axisLine={false}
+                width={36}
                 tickFormatter={(val) => `$${(val / 1000).toFixed(0)}k`}
               />
               <Tooltip

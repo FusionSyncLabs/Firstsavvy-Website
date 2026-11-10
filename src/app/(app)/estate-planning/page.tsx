@@ -9,7 +9,7 @@ export default function EstatePlanningPage() {
     <div className="space-y-8 pb-12 max-w-4xl mx-auto">
       {/* Header */}
       <div>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <span className="text-xs font-bold uppercase tracking-widest text-brand-sky">Generational Wealth</span>
           <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300">
             Roadmap Module (Coming Soon)

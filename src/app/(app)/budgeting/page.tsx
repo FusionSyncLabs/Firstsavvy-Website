@@ -62,20 +62,20 @@ export default function BudgetingPage() {
           </h1>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2 sm:gap-3 w-full sm:w-auto">
           <button
             onClick={handleCopyPreviousMonth}
-            className="min-h-[44px] px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-brand-navy dark:text-white inline-flex items-center gap-2 hover:bg-slate-50 transition-colors"
+            className="min-h-[44px] w-full sm:w-auto px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-brand-navy dark:text-white inline-flex items-center justify-center gap-2 hover:bg-slate-50 transition-colors"
           >
-            <Copy className="w-3.5 h-3.5" />
+            <Copy className="w-3.5 h-3.5 shrink-0" />
             <span>Copy July Budget</span>
           </button>
 
           <button
             onClick={() => setCategoryModalOpen(true)}
-            className="min-h-[44px] px-4 py-2.5 rounded-xl bg-brand-navy hover:bg-brand-navyDark text-white text-xs font-bold inline-flex items-center gap-2 shadow-sm"
+            className="min-h-[44px] w-full sm:w-auto px-4 py-2.5 rounded-xl bg-brand-navy hover:bg-brand-navyDark text-white text-xs font-bold inline-flex items-center justify-center gap-2 shadow-sm"
           >
-            <Plus className="w-3.5 h-3.5 text-brand-sky" />
+            <Plus className="w-3.5 h-3.5 text-brand-sky shrink-0" />
             <span>Category Manager</span>
           </button>
         </div>

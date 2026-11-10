@@ -27,7 +27,7 @@ export default function ReferralPage() {
       </div>
 
       {/* Referral Link Box */}
-      <div className="p-8 rounded-3xl bg-gradient-to-br from-brand-navy to-brand-navyDark text-white shadow-xl space-y-6">
+      <div className="p-4 sm:p-8 rounded-3xl bg-gradient-to-br from-brand-navy to-brand-navyDark text-white shadow-xl space-y-6">
         <div className="space-y-2">
           <div className="text-xs font-bold uppercase tracking-wider text-brand-softBlue">Your Unique Household Link</div>
           <h2 className="text-2xl font-serif font-bold">Invite friends & relatives to First Savvy</h2>
@@ -41,7 +41,7 @@ export default function ReferralPage() {
             type="text"
             readOnly
             value={referralLink}
-            className="min-h-[44px] flex-1 px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-base sm:text-xs text-white font-mono focus:outline-none"
+            className="min-h-[44px] min-w-0 flex-1 px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-base text-white font-mono focus:outline-none"
           />
           <button
             onClick={handleCopy}

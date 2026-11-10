@@ -171,21 +171,21 @@ export default function ChildProfileDetailPage() {
           </div>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2 sm:gap-3 w-full sm:w-auto">
           <button
             onClick={() => {
               setIsDeduction(false);
               setAwardModalOpen(true);
             }}
-            className="min-h-[44px] px-4 py-2.5 rounded-xl bg-brand-navy hover:bg-brand-navyDark text-white text-xs font-bold inline-flex items-center gap-1.5 shadow-sm"
+            className="min-h-[44px] w-full sm:w-auto px-4 py-2.5 rounded-xl bg-brand-navy hover:bg-brand-navyDark text-white text-xs font-bold inline-flex items-center justify-center gap-1.5 shadow-sm"
           >
-            <Star className="w-3.5 h-3.5 fill-brand-sky text-brand-sky" />
+            <Star className="w-3.5 h-3.5 fill-brand-sky text-brand-sky shrink-0" />
             <span>Award Stars</span>
           </button>
 
           <Link
             href="/kid-view"
-            className="min-h-[44px] px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-brand-navy dark:text-white inline-flex items-center gap-1.5"
+            className="min-h-[44px] w-full sm:w-auto px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-brand-navy dark:text-white inline-flex items-center justify-center gap-1.5"
           >
             <span>Preview Kid Space</span>
           </Link>
@@ -193,30 +193,32 @@ export default function ChildProfileDetailPage() {
       </div>
 
       {/* 2. Subtabs Navigation */}
-      <div className="flex gap-2 overflow-x-auto overscroll-x-contain no-scrollbar border-b border-slate-200 dark:border-slate-800 pb-2">
-        {[
-          { id: 'tasks', label: 'Tasks & Chores', count: childTasks.length },
-          { id: 'goals', label: 'Goals & Rewards', count: childGoals.length },
-          { id: 'ledger', label: 'Star Ledger Audit', count: childLedger.length },
-          { id: 'settings', label: 'Parent Controls & Privacy' },
-        ].map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => setActiveTab(tab.id as any)}
-            className={`shrink-0 whitespace-nowrap min-h-[44px] px-4 py-2 rounded-xl text-xs font-bold transition-colors flex items-center gap-2 ${
-              activeTab === tab.id
-                ? 'bg-brand-navy text-white shadow-xs dark:bg-brand-sky dark:text-slate-900'
-                : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
-            }`}
-          >
-            <span>{tab.label}</span>
-            {tab.count !== undefined && (
-              <span className={`text-[11px] px-1.5 py-0.5 rounded-full ${activeTab === tab.id ? 'bg-white/20' : 'bg-slate-200 dark:bg-slate-700'}`}>
-                {tab.count}
-              </span>
-            )}
-          </button>
-        ))}
+      <div className="-mx-4 px-4 sm:mx-0 sm:px-0 overflow-x-auto overscroll-x-contain no-scrollbar border-b border-slate-200 dark:border-slate-800 pb-2">
+        <div className="inline-flex min-w-max gap-2">
+          {[
+            { id: 'tasks', label: 'Tasks & Chores', count: childTasks.length },
+            { id: 'goals', label: 'Goals & Rewards', count: childGoals.length },
+            { id: 'ledger', label: 'Star Ledger Audit', count: childLedger.length },
+            { id: 'settings', label: 'Parent Controls & Privacy' },
+          ].map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id as any)}
+              className={`shrink-0 whitespace-nowrap min-h-[44px] px-4 py-2 rounded-xl text-xs font-bold transition-colors flex items-center gap-2 ${
+                activeTab === tab.id
+                  ? 'bg-brand-navy text-white shadow-xs dark:bg-brand-sky dark:text-slate-900'
+                  : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
+              }`}
+            >
+              <span>{tab.label}</span>
+              {tab.count !== undefined && (
+                <span className={`text-[11px] px-1.5 py-0.5 rounded-full ${activeTab === tab.id ? 'bg-white/20' : 'bg-slate-200 dark:bg-slate-700'}`}>
+                  {tab.count}
+                </span>
+              )}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* 3. SUBTAB: TASKS & CHORES */}

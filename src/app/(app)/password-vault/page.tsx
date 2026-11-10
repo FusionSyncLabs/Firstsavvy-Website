@@ -7,7 +7,7 @@ export default function PasswordVaultPage() {
   return (
     <div className="space-y-8 pb-12 max-w-4xl mx-auto">
       <div>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <span className="text-xs font-bold uppercase tracking-widest text-brand-sky">Security & Credentials</span>
           <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300">
             Roadmap Architecture

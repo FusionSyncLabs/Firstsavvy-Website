@@ -118,27 +118,29 @@ export default function ProfilesPage() {
           </h1>
         </div>
 
-        <div className="flex items-center gap-3">
-          <div className="flex bg-slate-100 dark:bg-slate-800 p-1 rounded-xl text-xs font-bold">
+        <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2 sm:gap-3 w-full sm:w-auto">
+          <div className="flex bg-slate-100 dark:bg-slate-800 p-1 rounded-xl text-xs font-bold w-full sm:w-auto">
             <button
               onClick={() => setViewMode('grid')}
-              className={`min-h-[44px] px-3 py-1.5 rounded-lg transition-colors ${viewMode === 'grid' ? 'bg-white dark:bg-slate-700 text-brand-navy dark:text-white shadow-xs' : 'text-slate-500'}`}
+              className={`flex-1 sm:flex-none min-h-[44px] px-3 py-1.5 rounded-lg transition-colors ${viewMode === 'grid' ? 'bg-white dark:bg-slate-700 text-brand-navy dark:text-white shadow-xs' : 'text-slate-500'}`}
             >
-              Grid View
+              <span className="sm:hidden">Grid</span>
+              <span className="hidden sm:inline">Grid View</span>
             </button>
             <button
               onClick={() => setViewMode('list')}
-              className={`min-h-[44px] px-3 py-1.5 rounded-lg transition-colors ${viewMode === 'list' ? 'bg-white dark:bg-slate-700 text-brand-navy dark:text-white shadow-xs' : 'text-slate-500'}`}
+              className={`flex-1 sm:flex-none min-h-[44px] px-3 py-1.5 rounded-lg transition-colors ${viewMode === 'list' ? 'bg-white dark:bg-slate-700 text-brand-navy dark:text-white shadow-xs' : 'text-slate-500'}`}
             >
-              List View
+              <span className="sm:hidden">List</span>
+              <span className="hidden sm:inline">List View</span>
             </button>
           </div>
 
           <button
             onClick={() => setAddModalOpen(true)}
-            className="min-h-[44px] px-4 py-2.5 rounded-xl bg-brand-navy hover:bg-brand-navyDark text-white text-xs font-bold inline-flex items-center gap-2 shadow-sm"
+            className="min-h-[44px] w-full sm:w-auto px-4 py-2.5 rounded-xl bg-brand-navy hover:bg-brand-navyDark text-white text-xs font-bold inline-flex items-center justify-center gap-2 shadow-sm"
           >
-            <Plus className="w-3.5 h-3.5 text-brand-sky" />
+            <Plus className="w-3.5 h-3.5 text-brand-sky shrink-0" />
             <span>Add Family Member</span>
           </button>
         </div>
@@ -146,7 +148,7 @@ export default function ProfilesPage() {
 
       {/* 2. Profiles Grid / List */}
       {viewMode === 'grid' ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {state.profiles.map((p) => {
             const isActive = p.id === activeProfile.id;
             return (

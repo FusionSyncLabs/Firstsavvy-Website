@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { FirstSavvyLogoSidebar } from '@/components/brand/FirstSavvyBrandLogo';
 import { useFirstSavvyStore } from '@/lib/store';
+import { useBodyScrollLock } from '@/lib/hooks/useBodyScrollLock';
 import {
   LayoutDashboard,
   Landmark,
@@ -42,22 +43,17 @@ export function AppSidebar({ mobileOpen = false, onCloseMobile }: SidebarProps) 
     return () => desktop.removeEventListener('change', closeOnDesktop);
   }, [onCloseMobile]);
 
-  // Lock body scroll + close on Escape while mobile drawer is open
+  // Preserve scroll position while the drawer is open
+  useBodyScrollLock(mobileOpen);
+
   useEffect(() => {
     if (!mobileOpen) return;
-
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && onCloseMobile) onCloseMobile();
     };
     window.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      window.removeEventListener('keydown', handleKeyDown);
-    };
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, [mobileOpen, onCloseMobile]);
 
   const navItems = [
@@ -235,7 +231,7 @@ export function AppSidebar({ mobileOpen = false, onCloseMobile }: SidebarProps) 
           aria-label="Navigation menu"
         >
           <div className="fixed inset-0 bg-black/75 backdrop-blur-sm" onClick={onCloseMobile} />
-          <div className="relative w-64 max-w-xs h-[100dvh] shadow-2xl animate-in slide-in-from-left duration-200">
+          <div className="relative w-[86vw] max-w-xs h-[100dvh] shadow-2xl animate-in slide-in-from-left duration-200">
             {content}
           </div>
         </div>

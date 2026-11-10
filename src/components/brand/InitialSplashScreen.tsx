@@ -23,7 +23,7 @@ export function InitialSplashScreen() {
   const handleDrawComplete = useCallback(() => {
     clearTimeout(completeTimer.current);
     // Hold the completed filled lion briefly before fading out.
-    completeTimer.current = setTimeout(triggerExit, 250);
+    completeTimer.current = setTimeout(triggerExit, 550);
   }, [triggerExit]);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ export function InitialSplashScreen() {
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     // Safety fallback guarantees visitors are never blocked if CSS animation events don't fire.
-    const timeout = setTimeout(triggerExit, reduceMotion ? 400 : 2800);
+    const timeout = setTimeout(triggerExit, reduceMotion ? 400 : 3800);
     return () => {
       clearTimeout(timeout);
       clearTimeout(fadeTimer.current);

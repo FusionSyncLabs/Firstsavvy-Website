@@ -179,7 +179,7 @@ html {
 }
 
 .firstsavvy-lion-drawing-once .lion-stroke-path {
-  animation: firstSavvyLionDraw 1.8s cubic-bezier(0.22, 1, 0.36, 1) 1 forwards;
+  animation: firstSavvyLionDraw 2.5s cubic-bezier(0.22, 1, 0.36, 1) 1 forwards;
 }
 
 @keyframes firstSavvyLionDraw {

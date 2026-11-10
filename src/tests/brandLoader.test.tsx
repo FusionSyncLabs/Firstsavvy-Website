@@ -37,7 +37,7 @@ describe('brand splash screen', () => {
     expect(container.querySelectorAll('path.lion-stroke-path')).toHaveLength(5);
     expect(document.body.style.overflow).toBe('hidden');
 
-    await act(() => vi.advanceTimersByTimeAsync(3200));
+    await act(() => vi.advanceTimersByTimeAsync(4200));
     expect(screen.queryByRole('progressbar')).not.toBeInTheDocument();
     expect(document.body.style.overflow).toBe('');
   });
@@ -50,7 +50,7 @@ describe('brand splash screen', () => {
     Object.defineProperty(event, 'animationName', { value: 'firstSavvyLionDraw' });
     fireEvent(svg, event);
 
-    await act(() => vi.advanceTimersByTimeAsync(600));
+    await act(() => vi.advanceTimersByTimeAsync(900));
     expect(screen.queryByRole('progressbar')).not.toBeInTheDocument();
     expect(document.body.style.overflow).toBe('');
   });

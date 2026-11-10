@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
+import { APP_SIGNUP_URL } from '@/lib/config/authUrls';
 import { Plus } from 'lucide-react';
 
 export function LiveIntegrationsPreview() {
@@ -18,13 +18,13 @@ export function LiveIntegrationsPreview() {
               Connect your banks to automatically import transactions and sync balances.
             </p>
           </div>
-          <Link
-            href="/signup"
+          <a
+            href={APP_SIGNUP_URL}
             className="inline-flex min-h-[42px] shrink-0 cursor-pointer items-center gap-1.5 rounded-xl bg-[#52A5CE] px-4 py-2 text-sm font-bold text-white shadow-2xs transition-all hover:bg-[#438fb6] hover:scale-[1.02] active:scale-[0.98]"
           >
             <Plus className="h-4 w-4" />
             <span className="whitespace-nowrap">Add Bank</span>
-          </Link>
+          </a>
         </div>
 
         <div className="rounded-2xl border border-slate-200/90 bg-white py-12 px-6 text-center shadow-2xs dark:border-slate-800 dark:bg-slate-800/60">

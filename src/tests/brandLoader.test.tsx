@@ -3,52 +3,64 @@ import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { InitialSplashScreen } from '@/components/brand/InitialSplashScreen';
 
-let phone = true;
+let reduceMotion = false;
 
 beforeEach(() => {
   vi.useFakeTimers();
   sessionStorage.clear();
   document.body.style.overflow = '';
-  phone = true;
+  reduceMotion = false;
   vi.mocked(window.matchMedia).mockImplementation((query) => ({
-    matches: phone && query.includes('max-width'), media: query,
-    onchange: null, addListener: vi.fn(), removeListener: vi.fn(),
-    addEventListener: vi.fn(), removeEventListener: vi.fn(), dispatchEvent: vi.fn(),
+    matches: reduceMotion && query.includes('prefers-reduced-motion'),
+    media: query,
+    onchange: null,
+    addListener: vi.fn(),
+    removeListener: vi.fn(),
+    addEventListener: vi.fn(),
+    removeEventListener: vi.fn(),
+    dispatchEvent: vi.fn(),
   }));
-  vi.spyOn(HTMLMediaElement.prototype, 'play').mockResolvedValue();
-  vi.spyOn(HTMLMediaElement.prototype, 'pause').mockImplementation(() => {});
 });
 
-afterEach(() => { cleanup(); vi.useRealTimers(); vi.restoreAllMocks(); });
+afterEach(() => {
+  cleanup();
+  vi.useRealTimers();
+  vi.restoreAllMocks();
+});
 
-describe('brand splash on mobile', () => {
-  it('shows the complete logo without a video and releases scrolling promptly', async () => {
+describe('brand splash screen', () => {
+  it('renders the geometric lion SVG loader, locks scroll, and exits via fallback timer', async () => {
     const { container } = render(<InitialSplashScreen />);
-    expect(container.querySelector('img')).toBeVisible();
-    expect(container.querySelector('video')).toBeNull();
+    const svg = container.querySelector('svg.firstsavvy-lion-drawing');
+    expect(svg).toBeInTheDocument();
+    expect(svg).toHaveClass('firstsavvy-lion-drawing-once');
+    expect(container.querySelectorAll('path.lion-stroke-path')).toHaveLength(5);
     expect(document.body.style.overflow).toBe('hidden');
-    await act(() => vi.advanceTimersByTimeAsync(1000));
+
+    await act(() => vi.advanceTimersByTimeAsync(3200));
     expect(screen.queryByRole('progressbar')).not.toBeInTheDocument();
     expect(document.body.style.overflow).toBe('');
   });
 
-  it('does not trap visitors when autoplay is rejected', async () => {
-    phone = false;
-    vi.mocked(HTMLMediaElement.prototype.play).mockRejectedValue(new DOMException('Blocked', 'NotAllowedError'));
+  it('exits promptly when the lion draw animation ends', async () => {
     const { container } = render(<InitialSplashScreen />);
-    await act(async () => {});
-    expect(container.querySelector('img')).toBeVisible();
-    await act(() => vi.advanceTimersByTimeAsync(1000));
+    const svg = container.querySelector('svg.firstsavvy-lion-drawing')!;
+
+    const event = new Event('animationend', { bubbles: true });
+    Object.defineProperty(event, 'animationName', { value: 'firstSavvyLionDraw' });
+    fireEvent(svg, event);
+
+    await act(() => vi.advanceTimersByTimeAsync(600));
     expect(screen.queryByRole('progressbar')).not.toBeInTheDocument();
+    expect(document.body.style.overflow).toBe('');
   });
 
-  it('exits after the desktop video ends instead of looping indefinitely', async () => {
-    phone = false;
-    const { container } = render(<InitialSplashScreen />);
-    const video = container.querySelector('video')!;
-    expect(video.loop).toBe(false);
-    fireEvent.ended(video);
-    await act(() => vi.advanceTimersByTimeAsync(300));
+  it('releases quickly when prefers-reduced-motion is enabled', async () => {
+    reduceMotion = true;
+    render(<InitialSplashScreen />);
+    expect(screen.getByRole('progressbar')).toBeInTheDocument();
+
+    await act(() => vi.advanceTimersByTimeAsync(450));
     expect(screen.queryByRole('progressbar')).not.toBeInTheDocument();
     expect(document.body.style.overflow).toBe('');
   });

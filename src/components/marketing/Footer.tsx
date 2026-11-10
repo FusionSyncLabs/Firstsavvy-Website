@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Logo } from '../brand/Logo';
+import { APP_CHILD_LOGIN_URL, APP_LOGIN_URL } from '@/lib/config/authUrls';
 import { ShieldCheck } from 'lucide-react';
 
 // §5 — nav & footer link touch target. Shared by every link in the column lists so
@@ -78,14 +79,14 @@ export function MarketingFooter() {
                 </a>
               </li>
               <li>
-                <Link href="/login" className={footerLink}>
+                <a href={APP_LOGIN_URL} className={footerLink}>
                   Login
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/kid-login" className={footerLink}>
+                <a href={APP_CHILD_LOGIN_URL} className={footerLink}>
                   Login as a kid
-                </Link>
+                </a>
               </li>
             </ul>
           </div>

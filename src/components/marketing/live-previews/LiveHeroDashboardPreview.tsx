@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useMemo, useRef, useEffect } from 'react';
+import { APP_SIGNUP_URL } from '@/lib/config/authUrls';
 import { amountClass } from './DemoAppPages';
 import { FamilyDemoChildView } from './FamilyDemoChildView';
 import { FamilyDemoDialogs } from './FamilyDemoDialogs';
@@ -155,7 +156,7 @@ export function LiveHeroDashboardPreview() {
 
   const redirectToSignup = () => {
     if (typeof window !== 'undefined') {
-      window.location.href = '/signup';
+      window.location.href = APP_SIGNUP_URL;
     }
   };
 

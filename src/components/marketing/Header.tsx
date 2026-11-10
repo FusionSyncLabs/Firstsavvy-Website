@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Logo } from '../brand/Logo';
+import { APP_LOGIN_URL, APP_SIGNUP_URL } from '@/lib/config/authUrls';
 import { Menu, X, ArrowRight } from 'lucide-react';
 
 export function MarketingHeader() {
@@ -75,19 +76,19 @@ export function MarketingHeader() {
 
         {/* Action Buttons */}
         <div className="hidden lg:flex items-center gap-3 xl:gap-4">
-          <Link
-            href="/login"
+          <a
+            href={APP_LOGIN_URL}
             className="text-sm font-semibold text-brand-navy dark:text-slate-200 hover:text-brand-sky transition-colors px-3 py-2"
           >
             Log In
-          </Link>
-          <Link
-            href="/signup"
+          </a>
+          <a
+            href={APP_SIGNUP_URL}
             className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-brand-navy hover:bg-brand-navyDark text-white text-sm font-semibold shadow-sm hover:shadow transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
           >
             <span>Get Started for Free</span>
             <ArrowRight className="w-4 h-4 text-brand-sky" />
-          </Link>
+          </a>
         </div>
 
         {/* Mobile menu button */}
@@ -123,20 +124,20 @@ export function MarketingHeader() {
           </div>
 
           <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-col gap-3">
-            <Link
-              href="/login"
+            <a
+              href={APP_LOGIN_URL}
               onClick={() => setMobileMenuOpen(false)}
               className="min-h-11 w-full text-center py-2.5 px-4 rounded-lg border border-slate-300 dark:border-slate-700 text-sm font-semibold text-brand-navy dark:text-white"
             >
               Log In
-            </Link>
-            <Link
-              href="/signup"
+            </a>
+            <a
+              href={APP_SIGNUP_URL}
               onClick={() => setMobileMenuOpen(false)}
               className="min-h-11 w-full text-center py-2.5 px-4 rounded-lg bg-brand-navy text-white text-sm font-semibold shadow"
             >
               Get Started for Free
-            </Link>
+            </a>
           </div>
         </div>
       )}

@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import { APP_SIGNUP_URL } from '@/lib/config/authUrls';
 import { HeroPreview } from '@/components/marketing/HeroPreview';
 import { HowItWorks } from '@/components/marketing/HowItWorks';
 import { WaitlistForm } from '@/components/marketing/WaitlistForm';
@@ -81,13 +82,13 @@ export default function HomePage() {
           {/* CTAs */}
           <FadeIn delay={0.5}>
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/signup"
+              <a
+                href={APP_SIGNUP_URL}
                 className="w-full sm:w-auto min-h-[44px] px-6 sm:px-8 py-4 rounded-xl bg-brand-navy hover:bg-brand-navyDark text-white text-base font-semibold shadow-lg hover:shadow-2xl transition-all duration-200 hover:-translate-y-1 inline-flex items-center justify-center gap-3 group"
               >
                 <span>Get Started for Free</span>
                 <ArrowRight className="w-5 h-5 shrink-0 text-brand-sky group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </a>
 
               <a
                 href="#how-it-works"
@@ -351,13 +352,13 @@ export default function HomePage() {
               First Savvy organizes banking, vehicles, properties, investments, and liabilities so you understand your true net worth and can follow how your financial standing evolves.
             </p>
             <div className="pt-2">
-              <Link
-                href="/signup"
+              <a
+                href={APP_SIGNUP_URL}
                 className="inline-flex items-center gap-2 min-h-[44px] lg:min-h-0 lg:py-1 text-sm font-bold text-brand-sky hover:text-brand-navyDark transition-colors group"
               >
                 <span>Track Your Net Worth</span>
                 <ArrowRight className="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </a>
             </div>
           </div>
 

@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
 import { Logo } from '@/components/brand/Logo';
+import { APP_LOGIN_URL } from '@/lib/config/authUrls';
 import { Mail, ArrowRight, CheckCircle2, ArrowLeft } from 'lucide-react';
 
 export default function ForgotPasswordPage() {
@@ -38,13 +38,13 @@ export default function ForgotPasswordPage() {
                 If an account exists for <span className="font-bold underline">{email}</span>, you will receive password reset instructions shortly.
               </p>
               <div className="pt-4">
-                <Link
-                  href="/login"
+                <a
+                  href={APP_LOGIN_URL}
                   className="min-h-[44px] w-full py-2.5 rounded-xl bg-brand-navy hover:bg-brand-navyDark text-white text-xs font-semibold inline-flex items-center justify-center gap-2"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   <span>Return to Sign In</span>
-                </Link>
+                </a>
               </div>
             </div>
           ) : (
@@ -75,9 +75,9 @@ export default function ForgotPasswordPage() {
               </button>
 
               <div className="text-center pt-2">
-                <Link href="/login" className="inline-flex min-h-[44px] items-center justify-center text-xs font-semibold text-slate-500 hover:text-brand-sky">
+                <a href={APP_LOGIN_URL} className="inline-flex min-h-[44px] items-center justify-center text-xs font-semibold text-slate-500 hover:text-brand-sky">
                   Back to Sign In
-                </Link>
+                </a>
               </div>
             </form>
           )}

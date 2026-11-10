@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Logo } from '@/components/brand/Logo';
+import { APP_CHILD_LOGIN_URL, APP_SIGNUP_URL } from '@/lib/config/authUrls';
 import { 
   Eye, 
   EyeOff, 
@@ -162,20 +163,20 @@ export default function LoginPage() {
 
           {/* Kid Space Switcher */}
           <div className="pt-4 border-t border-slate-100 dark:border-slate-800 text-center">
-            <Link
-              href="/kid-login"
+            <a
+              href={APP_CHILD_LOGIN_URL}
               className="inline-flex min-h-[44px] items-center gap-1.5 text-xs font-bold text-amber-600 dark:text-amber-400 hover:underline p-1"
             >
               <span>Are you a kid? Go to Kid Space Login (PIN) →</span>
-            </Link>
+            </a>
           </div>
         </div>
 
         <div className="mt-6 text-center text-xs text-slate-500">
           Don't have a household yet?{' '}
-          <Link href="/signup" className="inline-flex items-center min-h-[44px] font-bold text-brand-sky hover:underline">
+          <a href={APP_SIGNUP_URL} className="inline-flex items-center min-h-[44px] font-bold text-brand-sky hover:underline">
             Create your account for free
-          </Link>
+          </a>
         </div>
       </div>
     </div>

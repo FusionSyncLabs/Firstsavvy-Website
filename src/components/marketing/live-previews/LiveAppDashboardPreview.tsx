@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
+import { APP_SIGNUP_URL } from '@/lib/config/authUrls';
 import { DemoAppPage, amountClass } from './DemoAppPages';
 import { FirstSavvyLogoSidebar, FirstSavvyIcon } from '@/components/brand/FirstSavvyBrandLogo';
 import {
@@ -270,7 +271,7 @@ export function LiveAppDashboardPreview() {
   /* ---------- Handlers ---------- */
   const redirectToSignup = () => {
     if (typeof window !== 'undefined') {
-      window.location.href = '/signup';
+      window.location.href = APP_SIGNUP_URL;
     }
   };
 

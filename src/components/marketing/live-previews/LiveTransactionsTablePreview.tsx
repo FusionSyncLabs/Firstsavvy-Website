@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
+import { APP_SIGNUP_URL } from '@/lib/config/authUrls';
 import { Search, Plus, FileText } from 'lucide-react';
 
 interface Transaction {
@@ -63,14 +63,14 @@ export function LiveTransactionsTablePreview() {
           </div>
 
           {/* Add Button */}
-          <Link
-            href="/signup"
+          <a
+            href={APP_SIGNUP_URL}
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#52A5CE] hover:bg-[#438fb6] text-white text-xs font-semibold shadow-xs transition-colors cursor-pointer shrink-0"
             title="Sign up to add transactions"
           >
             <Plus className="w-3.5 h-3.5 stroke-[2.5]" />
             <span>Add Txn</span>
-          </Link>
+          </a>
         </div>
       </div>
 

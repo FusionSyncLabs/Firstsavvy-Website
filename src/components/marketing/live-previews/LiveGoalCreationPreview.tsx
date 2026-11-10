@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { APP_SIGNUP_URL } from '@/lib/config/authUrls';
 import { Gift } from 'lucide-react';
 import {
   AssignTo,
@@ -30,7 +30,6 @@ const TIMELINE_OPTIONS = [
 ];
 
 export function LiveGoalCreationPreview() {
-  const router = useRouter();
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   const [title, setTitle] = useState('');
@@ -96,7 +95,9 @@ export function LiveGoalCreationPreview() {
   }, [hasAnimated]);
 
   const handleRedirect = () => {
-    router.push('/signup');
+    if (typeof window !== 'undefined') {
+      window.location.href = APP_SIGNUP_URL;
+    }
   };
 
   return (

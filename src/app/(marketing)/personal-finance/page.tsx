@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import { APP_SIGNUP_URL } from '@/lib/config/authUrls';
 import { WaitlistForm } from '@/components/marketing/WaitlistForm';
 import { FAQAccordion } from '@/components/marketing/FAQAccordion';
 import { CanvasErrorBoundary } from '@/components/3d/CanvasErrorBoundary';
@@ -75,13 +75,13 @@ export default function PersonalFinancePage() {
 
           <FadeIn delay={0.35}>
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/signup"
+              <a
+                href={APP_SIGNUP_URL}
                 className="w-full sm:w-auto min-h-[44px] px-6 sm:px-8 py-4 rounded-xl bg-brand-navy hover:bg-brand-navyDark text-white text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-200 inline-flex items-center justify-center gap-2"
               >
                 <span>Build Your Financial View</span>
                 <ArrowRight className="w-5 h-5 shrink-0 text-brand-sky" />
-              </Link>
+              </a>
             </div>
           </FadeIn>
 
@@ -198,13 +198,13 @@ export default function PersonalFinancePage() {
               </p>
               
               <div className="pt-2">
-                <Link
-                  href="/signup"
+                <a
+                  href={APP_SIGNUP_URL}
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 min-h-[44px] px-6 py-3 rounded-xl bg-brand-navy hover:bg-brand-navyDark dark:bg-brand-sky dark:hover:bg-brand-blue text-white text-sm font-semibold shadow-md transition-colors"
                 >
                   <span>Get Started</span>
                   <ArrowRight className="w-4 h-4 shrink-0 text-brand-sky dark:text-white" />
-                </Link>
+                </a>
               </div>
             </div>
 

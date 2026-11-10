@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Logo } from '@/components/brand/Logo';
+import { APP_LOGIN_URL } from '@/lib/config/authUrls';
 import { 
   Star, 
   Sparkles, 
@@ -189,9 +189,9 @@ export default function KidLoginPage() {
 
         <div className="mt-6 text-center text-xs text-slate-500">
           Are you a parent?{' '}
-          <Link href="/login" className="inline-flex items-center min-h-[44px] font-bold text-brand-navy dark:text-white hover:underline">
+          <a href={APP_LOGIN_URL} className="inline-flex items-center min-h-[44px] font-bold text-brand-navy dark:text-white hover:underline">
             Switch to Adult Login
-          </Link>
+          </a>
         </div>
       </div>
     </div>

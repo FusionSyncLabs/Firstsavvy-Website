@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
+import { APP_SIGNUP_URL } from '@/lib/config/authUrls';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { 
   Home, 
@@ -282,13 +282,13 @@ export function HowItWorks() {
                     <ArrowRight className="w-4 h-4 shrink-0 text-brand-sky" />
                   </button>
                 ) : (
-                  <Link
-                    href="/signup"
+                  <a
+                    href={APP_SIGNUP_URL}
                     className="min-h-[44px] px-4 sm:px-5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold inline-flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all hover:scale-105"
                   >
                     <span className="whitespace-nowrap">Get Started Now</span>
                     <ArrowRight className="w-4 h-4 shrink-0" />
-                  </Link>
+                  </a>
                 )}
               </div>
             </motion.div>

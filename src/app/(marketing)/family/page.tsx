@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import { APP_SIGNUP_URL } from '@/lib/config/authUrls';
 import { WaitlistForm } from '@/components/marketing/WaitlistForm';
 import { FAQAccordion } from '@/components/marketing/FAQAccordion';
 import { CanvasErrorBoundary } from '@/components/3d/CanvasErrorBoundary';
@@ -67,13 +67,13 @@ export default function FamilyPage() {
 
           <FadeIn delay={0.4}>
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/signup"
+              <a
+                href={APP_SIGNUP_URL}
                 className="w-full sm:w-auto min-h-[44px] px-6 sm:px-8 py-4 rounded-xl bg-brand-navy hover:bg-brand-navyDark text-white text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-200 inline-flex items-center justify-center gap-2"
               >
                 <span>Create a Child Profile</span>
                 <ArrowRight className="w-5 h-5 shrink-0 text-brand-sky" />
-              </Link>
+              </a>
             </div>
           </FadeIn>
         </div>

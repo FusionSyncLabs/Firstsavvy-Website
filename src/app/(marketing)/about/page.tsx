@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import { APP_SIGNUP_URL } from '@/lib/config/authUrls';
 import { Logo } from '@/components/brand/Logo';
 import { FAQAccordion } from '@/components/marketing/FAQAccordion';
 import { CanvasErrorBoundary } from '@/components/3d/CanvasErrorBoundary';
@@ -123,13 +123,13 @@ export default function AboutPage() {
               Whether you are helping your seven-year-old learn the value of a chore or optimizing a multi-asset household portfolio, First Savvy is designed to be your family's lifelong financial operating system.
             </p>
             <div className="pt-2">
-              <Link
-                href="/signup"
+              <a
+                href={APP_SIGNUP_URL}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 min-h-[44px] px-5 sm:px-6 py-3 rounded-xl bg-brand-sky hover:bg-brand-blue text-white text-sm font-bold shadow transition-colors"
               >
                 <span>Join the First Savvy Community</span>
                 <ArrowRight className="w-4 h-4 shrink-0" />
-              </Link>
+              </a>
             </div>
           </div>
         </ScrollReveal>

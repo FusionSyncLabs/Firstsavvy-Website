@@ -1,6 +1,6 @@
 import React from 'react';
-import Link from 'next/link';
 import { Logo } from '@/components/brand/Logo';
+import { APP_LOGIN_URL } from '@/lib/config/authUrls';
 import { Clock, ArrowRight } from 'lucide-react';
 
 export default function SessionExpiredPage() {
@@ -19,13 +19,13 @@ export default function SessionExpiredPage() {
         </p>
 
         <div className="pt-4">
-          <Link
-            href="/login"
+          <a
+            href={APP_LOGIN_URL}
             className="min-h-[44px] w-full sm:w-auto px-8 py-3 rounded-xl bg-brand-navy hover:bg-brand-navyDark text-white text-sm font-semibold inline-flex items-center justify-center gap-2 shadow"
           >
             <span>Sign In Again</span>
             <ArrowRight className="w-4 h-4 text-brand-sky" />
-          </Link>
+          </a>
         </div>
       </div>
     </div>

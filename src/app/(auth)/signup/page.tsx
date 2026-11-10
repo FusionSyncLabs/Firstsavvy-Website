@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Logo } from '@/components/brand/Logo';
+import { APP_LOGIN_URL } from '@/lib/config/authUrls';
 import { 
   ArrowRight, 
   Check, 
@@ -426,9 +427,9 @@ export default function SignupPage() {
           {step === 1 && (
             <div className="pt-2 text-center text-xs text-slate-500">
               Already have an account?{' '}
-              <Link href="/login" className="inline-flex items-center min-h-[44px] font-bold text-brand-sky hover:underline">
+              <a href={APP_LOGIN_URL} className="inline-flex items-center min-h-[44px] font-bold text-brand-sky hover:underline">
                 Sign in here
-              </Link>
+              </a>
             </div>
           )}
         </div>

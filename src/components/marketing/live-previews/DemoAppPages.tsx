@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { APP_SIGNUP_URL } from '@/lib/config/authUrls';
 import {
   CircleDollarSign,
   ClipboardList,
@@ -71,7 +72,7 @@ const money2 = (n: number) =>
 
 const redirectToSignup = () => {
   if (typeof window !== 'undefined') {
-    window.location.href = '/signup';
+    window.location.href = APP_SIGNUP_URL;
   }
 };
 

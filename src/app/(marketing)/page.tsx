@@ -51,10 +51,10 @@ export default function HomePage() {
       <AuroraBackground />
 
       {/* 1. HERO SECTION */}
-      <section className="relative pt-2 sm:pt-4 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-2 sm:pt-4 max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
         <HeroGlow />
 
-        <div className="relative z-10 max-w-5xl mx-auto text-center space-y-3 sm:space-y-4">
+        <div className="relative z-10 max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto text-center space-y-3 sm:space-y-4">
           {/* Headline */}
           <FadeIn delay={0.15}>
             <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-brand-navy dark:text-white tracking-tight leading-[1.15]">
@@ -67,7 +67,7 @@ export default function HomePage() {
 
           {/* Body */}
           <FadeIn delay={0.3}>
-            <p className="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-slate-600 dark:text-slate-300 leading-relaxed">
+            <p className="max-w-3xl xl:max-w-4xl 2xl:max-w-5xl mx-auto text-base sm:text-lg lg:text-xl text-slate-600 dark:text-slate-300 leading-relaxed">
               First Savvy brings family money management and personal finance into one connected experience.
               See your accounts, budgets, transactions, bills, and net worth in one place, while giving your kids a practical way to learn earning, saving, responsibility, and progress.
             </p>
@@ -125,7 +125,7 @@ export default function HomePage() {
       </section>
 
       {/* METRICS STRIP */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-4 sm:-mt-6">
+      <section className="max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-4 sm:-mt-6">
         <ScrollReveal>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             <div className="p-4 sm:p-6 rounded-2xl bg-white/80 dark:bg-[#1E293B]/80 backdrop-blur-md border border-slate-200/80 dark:border-slate-700 text-center shadow-xs hover:scale-105 transition-transform duration-300">
@@ -168,10 +168,10 @@ export default function HomePage() {
       </section>
 
       {/* 2. SECTION: MONEY IS CONNECTED (Live Global Search Preview) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal distance={12} duration={0.45}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center p-6 sm:p-10 lg:p-12 rounded-3xl bg-white dark:bg-[#1E293B] border border-slate-200 dark:border-slate-800 shadow-sm">
-            <div className="lg:col-span-5 min-w-0 space-y-3 sm:space-y-4 text-center">
+            <div className="lg:col-span-5 min-w-0 space-y-3 sm:space-y-4 text-center lg:text-left">
               <span className="block text-xs font-bold uppercase tracking-widest text-brand-sky">Money is Connected</span>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-brand-navy dark:text-white leading-tight">
                 Your financial tools should be too.
@@ -198,9 +198,9 @@ export default function HomePage() {
       </section>
 
       {/* 3. SECTION: THE FIRST SAVVY WAY */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
-          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+          <div className="text-center max-w-3xl xl:max-w-4xl mx-auto mb-8 sm:mb-12">
             <span className="block text-xs font-bold uppercase tracking-widest text-brand-sky">The First Savvy Way</span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-brand-navy dark:text-white leading-tight mt-2">
               <TextReveal text="More than tracking money. Learn it. Manage it. Grow it." />
@@ -210,9 +210,9 @@ export default function HomePage() {
 
         <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           <StaggerItem>
-            <div className="h-full p-6 sm:p-7 rounded-2xl bg-white dark:bg-[#1E293B] border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-sky-400/50 transition-all flex flex-col justify-between text-center">
+            <div className="h-full p-6 sm:p-7 rounded-2xl bg-white dark:bg-[#1E293B] border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-sky-400/50 transition-all flex flex-col justify-between text-center lg:text-left">
               <div>
-                <div className="w-12 h-12 rounded-xl bg-sky-50 dark:bg-sky-950/60 border border-sky-100 dark:border-sky-900/50 flex items-center justify-center text-sky-600 dark:text-sky-400 mb-4 mx-auto">
+                <div className="w-12 h-12 rounded-xl bg-sky-50 dark:bg-sky-950/60 border border-sky-100 dark:border-sky-900/50 flex items-center justify-center text-sky-600 dark:text-sky-400 mb-4 mx-auto lg:mx-0">
                   <GraduationCap className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-bold font-sans text-slate-900 dark:text-white tracking-tight mb-2.5">
@@ -223,7 +223,7 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800/80 flex flex-wrap items-center justify-center gap-2">
+              <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800/80 flex flex-wrap items-center justify-center lg:justify-start gap-2">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-slate-50 dark:bg-slate-800/70 text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-slate-700 shadow-2xs">
                   <CheckCircle2 className="w-3.5 h-3.5 text-sky-500 shrink-0" />
                   Chores & Rewards
@@ -237,9 +237,9 @@ export default function HomePage() {
           </StaggerItem>
 
           <StaggerItem>
-            <div className="h-full p-6 sm:p-7 rounded-2xl bg-white dark:bg-[#1E293B] border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-emerald-500/50 transition-all flex flex-col justify-between text-center">
+            <div className="h-full p-6 sm:p-7 rounded-2xl bg-white dark:bg-[#1E293B] border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-emerald-500/50 transition-all flex flex-col justify-between text-center lg:text-left">
               <div>
-                <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-900/50 flex items-center justify-center text-emerald-600 dark:text-emerald-400 mb-4 mx-auto">
+                <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-100 dark:border-emerald-900/50 flex items-center justify-center text-emerald-600 dark:text-emerald-400 mb-4 mx-auto lg:mx-0">
                   <Wallet className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-bold font-sans text-slate-900 dark:text-white tracking-tight mb-2.5">
@@ -250,7 +250,7 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800/80 flex flex-wrap items-center justify-center gap-2">
+              <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800/80 flex flex-wrap items-center justify-center lg:justify-start gap-2">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-slate-50 dark:bg-slate-800/70 text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-slate-700 shadow-2xs">
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
                   Budgets & Cashflow
@@ -264,9 +264,9 @@ export default function HomePage() {
           </StaggerItem>
 
           <StaggerItem>
-            <div className="h-full p-6 sm:p-7 rounded-2xl bg-white dark:bg-[#1E293B] border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-indigo-400/50 transition-all flex flex-col justify-between text-center">
+            <div className="h-full p-6 sm:p-7 rounded-2xl bg-white dark:bg-[#1E293B] border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-indigo-400/50 transition-all flex flex-col justify-between text-center lg:text-left">
               <div>
-                <div className="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-100 dark:border-indigo-900/50 flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-4 mx-auto">
+                <div className="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-100 dark:border-indigo-900/50 flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-4 mx-auto lg:mx-0">
                   <TrendingUp className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-bold font-sans text-slate-900 dark:text-white tracking-tight mb-2.5">
@@ -277,7 +277,7 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800/80 flex flex-wrap items-center justify-center gap-2">
+              <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800/80 flex flex-wrap items-center justify-center lg:justify-start gap-2">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-slate-50 dark:bg-slate-800/70 text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-slate-700 shadow-2xs">
                   <CheckCircle2 className="w-3.5 h-3.5 text-indigo-500 shrink-0" />
                   Net Worth Tracking
@@ -293,9 +293,9 @@ export default function HomePage() {
       </section>
 
       {/* 4. SECTION: PERSONAL FINANCE PREVIEW (Live Transactions Table) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="space-y-6 sm:space-y-8">
-          <div className="text-center max-w-3xl mx-auto space-y-3">
+          <div className="text-center max-w-3xl xl:max-w-4xl mx-auto space-y-3">
             <span className="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400 block">
               Personal Finance Preview
             </span>
@@ -307,17 +307,17 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="max-w-6xl mx-auto min-w-0">
+          <div className="w-full min-w-0">
             <LiveAccountsLedgerPreview />
           </div>
         </div>
       </section>
 
       {/* 5. SECTION: FAMILY PREVIEW (Live Task & Goal Creation Modals) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <section className="max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 relative">
 
         <div className="space-y-6 sm:space-y-8 relative z-10">
-          <div className="text-center max-w-3xl mx-auto space-y-3">
+          <div className="text-center max-w-3xl xl:max-w-4xl mx-auto space-y-3">
             <span className="text-xs font-bold uppercase tracking-widest text-brand-sky block">
               Family Experience Preview
             </span>
@@ -329,7 +329,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6 max-w-5xl mx-auto items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6 xl:gap-8 w-full items-stretch">
             <div className="min-w-0 h-full">
               <LiveTaskCreationPreview />
             </div>
@@ -341,9 +341,9 @@ export default function HomePage() {
       </section>
 
       {/* 6. SECTION: SEE MORE THAN A BALANCE (Live Account Types Vector Preview) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center p-6 sm:p-10 lg:p-12 rounded-3xl bg-white dark:bg-[#1E293B] border border-slate-200 dark:border-slate-800 shadow-sm">
-          <div className="lg:col-span-5 min-w-0 space-y-3 sm:space-y-4 text-center">
+          <div className="lg:col-span-5 min-w-0 space-y-3 sm:space-y-4 text-center lg:text-left">
             <span className="block text-xs font-bold uppercase tracking-widest text-brand-sky">See More Than a Balance</span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-brand-navy dark:text-white leading-tight">
               Your balance is not your financial position.
@@ -369,7 +369,7 @@ export default function HomePage() {
       </section>
 
       {/* 7. HOW IT WORKS */}
-      <section id="how-it-works" className="scroll-mt-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="how-it-works" className="scroll-mt-20 max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 space-y-3">
             <span className="block text-xs font-bold uppercase tracking-widest text-brand-sky">Simple, Transparent Steps</span>

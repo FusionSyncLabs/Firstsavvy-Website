@@ -47,9 +47,9 @@ export default function PersonalFinancePage() {
     // §3 marketing page root rhythm — identical to the homepage root.
     <div className="space-y-12 sm:space-y-20 lg:space-y-24 pb-20 overflow-hidden relative">
       {/* 1. HERO SECTION — §2 wide marketing container */}
-      <section className="relative pt-2 sm:pt-4 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-2 sm:pt-4 max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="relative z-10 max-w-5xl mx-auto text-center space-y-3 sm:space-y-4 flex flex-col items-center">
+        <div className="relative z-10 max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto text-center space-y-3 sm:space-y-4 flex flex-col items-center">
           <FadeIn delay={0.05}>
             <span className="block text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
               Personal & Household Finance
@@ -94,17 +94,17 @@ export default function PersonalFinancePage() {
 
         {/* Hero Product Composite: Live Interactive Vector Transactions */}
         <ScrollReveal delay={0.3} direction="up">
-          <div className="relative z-10 mt-8 sm:mt-12 max-w-6xl mx-auto min-w-0">
+          <div className="relative z-10 mt-8 sm:mt-12 max-w-6xl xl:max-w-7xl 2xl:max-w-[90rem] mx-auto min-w-0">
             <LiveAccountsLedgerPreview />
           </div>
         </ScrollReveal>
       </section>
 
       {/* 2. SECTION: EVERYTHING IN VIEW (Live Account Types Vector) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
         {/* §6 asymmetric split — stacked below lg, copy first in DOM */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          <ScrollReveal direction="left" className="text-center lg:col-span-5 min-w-0 space-y-3 sm:space-y-4">
+          <ScrollReveal direction="left" className="text-center lg:text-left lg:col-span-5 min-w-0 space-y-3 sm:space-y-4">
             <span className="block text-xs font-bold uppercase tracking-widest text-brand-sky">Everything in View</span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-brand-navy dark:text-white leading-tight">
               <TextReveal text="Banking, assets, vehicles, properties, and loans. In one place." />
@@ -131,7 +131,7 @@ export default function PersonalFinancePage() {
       </section>
 
       {/* 3. SECTION: TRANSACTIONS & LESS REPETITION (Live Transactions Table) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="space-y-6 sm:space-y-8">
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <span className="block text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
@@ -145,17 +145,17 @@ export default function PersonalFinancePage() {
             </p>
           </div>
 
-          <div className="max-w-5xl mx-auto min-w-0">
+          <div className="w-full min-w-0">
             <LiveTransactionsTablePreview />
           </div>
         </div>
       </section>
 
       {/* 4. SECTION: BUDGETING (Live Budget Setup Vector) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
         {/* §6 copy first in DOM, preview moves left only from lg up */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          <ScrollReveal direction="right" className="text-center lg:order-2 lg:col-span-5 min-w-0 space-y-3 sm:space-y-4">
+          <ScrollReveal direction="right" className="text-center lg:text-left lg:order-2 lg:col-span-5 min-w-0 space-y-3 sm:space-y-4">
             <span className="block text-xs font-bold uppercase tracking-widest text-brand-sky">Budgeting</span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-brand-navy dark:text-white leading-tight">
               Planned. Actual. Remaining.
@@ -182,11 +182,11 @@ export default function PersonalFinancePage() {
       </section>
 
       {/* 5. CONNECTED WEALTH ARCHITECTURE */}
-      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-gradient-to-br from-slate-50 via-white to-sky-50/50 dark:from-[#1E293B] dark:via-[#1A232E] dark:to-[#16202C] border border-slate-200/90 dark:border-slate-800 p-6 sm:p-10 lg:p-12 shadow-sm relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Column: Heading & Story */}
-            <div className="text-center lg:col-span-5 space-y-4">
+            <div className="text-center lg:text-left lg:col-span-5 space-y-4">
               <span className="block text-xs font-bold uppercase tracking-widest text-brand-sky">
                 Connected Wealth Architecture
               </span>
@@ -259,7 +259,7 @@ export default function PersonalFinancePage() {
       </section>
 
       {/* 6. EARLY ACCESS CTA */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="p-6 sm:p-10 lg:p-12 rounded-3xl bg-gradient-to-br from-[#1E293B] via-[#0F172A] to-[#070B10] border border-slate-700/80 text-white text-center space-y-6 relative overflow-hidden shadow-2xl">
             {/* 3D Canvas Background */}

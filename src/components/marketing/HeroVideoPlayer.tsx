@@ -341,7 +341,7 @@ export function HeroVideoPlayer() {
   };
 
   return (
-    <div className={`relative mx-auto w-full min-w-0 ${viewMode === 'demo' ? 'max-w-6xl xl:max-w-7xl' : 'max-w-5xl lg:max-w-6xl'} group select-none transition-[max-width] duration-700 ease-out motion-reduce:transition-none`}>
+    <div className={`relative mx-auto w-full min-w-0 ${viewMode === 'demo' ? 'max-w-6xl xl:max-w-7xl 2xl:max-w-[90rem]' : 'max-w-5xl lg:max-w-6xl xl:max-w-7xl 2xl:max-w-[90rem]'} group select-none transition-[max-width] duration-700 ease-out motion-reduce:transition-none`}>
       {/* Dynamic Ambient Background Glow */}
       <div className={`absolute -inset-1 sm:-inset-2 bg-gradient-to-r from-brand-sky/25 via-blue-600/20 to-teal-400/20 rounded-3xl -z-10 transition-opacity duration-500 ${isSwitching ? 'opacity-0' : 'blur-2xl opacity-75 group-hover:opacity-100'}`} />
 

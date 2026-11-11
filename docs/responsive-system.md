@@ -40,15 +40,18 @@ inside an explicit `overflow-x-auto` container (tables, chip rows).
 Use exactly one of these. Do not invent new combinations.
 
 ```
-Wide marketing section   max-w-7xl mx-auto px-4 sm:px-6 lg:px-8
+Wide marketing section   max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8
 Narrow marketing section max-w-5xl mx-auto px-4 sm:px-6 lg:px-8
 Prose / legal / FAQ      max-w-3xl mx-auto px-4 sm:px-6 lg:px-8
 Auth card                w-full max-w-md mx-auto px-4 sm:px-6
 App page content         (provided by (app)/layout.tsx — never re-pad a page)
 ```
 
-App shell main element (already correct, keep as is):
-`p-4 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto`
+App shell main element:
+`p-4 sm:p-6 lg:p-8 max-w-7xl 2xl:max-w-[90rem] w-full mx-auto`
+
+On large desktops (`2xl` / 1536px+), wide sections expand to `90rem` (1440px) so
+~24" monitors do not leave the layout stuck in a narrow centered column.
 
 **Horizontal gutter is always `px-4 sm:px-6 lg:px-8`.** Never `px-6` alone, never
 `px-8` alone, never `container`.

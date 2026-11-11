@@ -26,7 +26,7 @@ export default function AboutPage() {
     // §3 marketing page root rhythm, §1 Rule B: nothing may widen the page.
     <div className="space-y-12 sm:space-y-20 lg:space-y-24 pb-20 overflow-hidden relative">
       {/* 1. HERO — §2 wide marketing container */}
-      <section className="relative pt-2 sm:pt-4 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-2 sm:pt-4 max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
         {/* §12 decorative wash: responsive box ladder, clipped, never interactive */}
         <HeroGlow className="inset-x-0 top-0 mx-auto h-[280px] max-w-5xl sm:h-[380px] lg:h-[480px]" />
 
@@ -59,7 +59,7 @@ export default function AboutPage() {
       </section>
 
       {/* 2. CORE PRINCIPLES — §6 2-up ladder, §3 card gap */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           <StaggerItem>
             <div className="h-full p-4 sm:p-6 rounded-2xl bg-white dark:bg-[#1E293B] border border-slate-200 dark:border-slate-800 shadow-sm space-y-3 sm:space-y-4 hover:border-brand-sky/40 hover:shadow-md transition-all text-center group">
@@ -112,7 +112,7 @@ export default function AboutPage() {
       </section>
 
       {/* 3. NARRATIVE — §3 hero panel padding */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="p-6 sm:p-10 lg:p-12 rounded-3xl bg-slate-900 text-white space-y-4 sm:space-y-6 text-center">
             <span className="block text-xs font-bold uppercase tracking-widest text-brand-sky">The Vision</span>

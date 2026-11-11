@@ -16,7 +16,7 @@ export function MarketingFooter() {
       {/* Subtle Ambient Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 max-w-4xl h-24 bg-gradient-to-r from-[#52A5CE]/10 via-[#AACC96]/10 to-[#EFCE7B]/10 blur-3xl pointer-events-none -z-0" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
         {/* §6 — footer grid ladder: 1 → 2 → 5, brand column spans 2 at `sm` and `lg`. */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-12 pb-10 sm:pb-16 border-b border-slate-800">
           {/* Brand Col */}

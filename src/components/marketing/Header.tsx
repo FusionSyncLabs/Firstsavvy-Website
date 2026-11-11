@@ -53,7 +53,7 @@ export function MarketingHeader() {
           mobileMenuOpen ? 'fixed inset-x-0 top-0' : 'sticky top-0'
         } z-50 bg-[#F9F7F8]/95 dark:bg-[#1A232E]/95 border-b border-slate-200/80 dark:border-slate-800/80 transition-colors`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+        <div className="max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
           {/* Brand Logo */}
           <Logo size="sm" href="/" />
 

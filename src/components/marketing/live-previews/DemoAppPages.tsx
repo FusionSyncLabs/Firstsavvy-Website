@@ -386,14 +386,6 @@ const ACCOUNT_SCOPES = ['All Accounts', 'Assets, Liabilities & Equity', 'Income 
 const REGISTER_TABS = ['Register', 'Audit History'] as const;
 const MONTHS = ['May 2025', 'June 2025', 'July 2025', 'August 2025', 'September 2025'];
 
-const CLASS_TINT: Record<string, string> = {
-  Asset: '#52A5CE',
-  Liability: '#e11d48',
-  Equity: '#64748b',
-  Expense: '#f59e0b',
-  Income: '#10b981',
-};
-
 const CAT_COLOR: Record<string, string> = {
   Groceries: '#52A5CE',
   Housing: '#8b5cf6',
@@ -899,7 +891,6 @@ function BankingPage({ onAction }: { onAction: (m: string) => void }) {
               <table className="w-full min-w-[880px] text-left">
                 <thead>
                   <tr className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">
-                    <th className="py-2 pr-2">Icon</th>
                     <th className="py-2 pr-3">Account Name</th>
                     <th className="py-2 pr-3">Class</th>
                     <th className="py-2 pr-3">Type</th>
@@ -914,14 +905,6 @@ function BankingPage({ onAction }: { onAction: (m: string) => void }) {
                 <tbody className="divide-y divide-slate-100">
                   {scopedAccounts.map((a) => (
                     <tr key={a.id} className="text-[11px] text-slate-700">
-                      <td className="py-2 pr-2">
-                        <span
-                          className="flex h-6 w-6 items-center justify-center rounded-full text-[11px] font-bold text-white"
-                          style={{ backgroundColor: CLASS_TINT[a.cls] ?? '#94a3b8' }}
-                        >
-                          {a.name.charAt(0)}
-                        </span>
-                      </td>
                       <td className="py-2 pr-3 font-semibold text-slate-900">{a.name}</td>
                       <td className="py-2 pr-3 text-slate-500">{a.cls}</td>
                       <td className="py-2 pr-3 text-slate-500">{a.type}</td>

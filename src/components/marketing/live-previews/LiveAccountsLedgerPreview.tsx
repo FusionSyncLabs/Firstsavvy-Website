@@ -16,14 +16,6 @@ interface Account {
   active: boolean;
 }
 
-const CLASS_TINT: Record<AccountClass, string> = {
-  Asset: '#52A5CE',
-  Liability: '#e11d48',
-  Equity: '#64748b',
-  Expense: '#f59e0b',
-  Income: '#10b981',
-};
-
 const ACCOUNTS: Account[] = [
   { id: 'a1', name: 'Primary Checking', cls: 'Asset', type: 'Bank Account', detail: 'Checking', owner: 'Joint', savvy: 5184.00, bank: 5184.00, active: true },
   { id: 'a2', name: 'High-Yield Savings', cls: 'Asset', type: 'Bank Account', detail: 'Savings', owner: 'Joint', savvy: 11800.00, bank: 11800.00, active: true },
@@ -72,7 +64,6 @@ export function LiveAccountsLedgerPreview() {
         <table className="w-full min-w-[840px] border-collapse text-left">
           <thead className="border-b border-slate-200 bg-slate-50 dark:border-slate-700/80 dark:bg-slate-800/60">
             <tr className="h-9 text-xs">
-              <th className="w-12 px-4 py-2 font-semibold text-slate-600 dark:text-slate-300">Icon</th>
               {SORTABLE.map((label) => {
                 const right = label === 'Savvy Balance' || label === 'Bank Balance';
                 return (
@@ -97,14 +88,6 @@ export function LiveAccountsLedgerPreview() {
                 key={a.id}
                 className="h-10 border-b border-slate-100 dark:border-slate-800"
               >
-                <td className="px-4 py-1.5">
-                  <span
-                    className="flex h-6 w-6 items-center justify-center rounded-full text-[10px] font-bold text-white shadow-xs"
-                    style={{ backgroundColor: CLASS_TINT[a.cls] }}
-                  >
-                    {a.name.charAt(0)}
-                  </span>
-                </td>
                 <td className="whitespace-nowrap px-4 py-1.5 text-xs font-semibold text-slate-900 dark:text-white">{a.name}</td>
                 <td className="whitespace-nowrap px-4 py-1.5 text-xs text-slate-600 dark:text-slate-400">{a.cls}</td>
                 <td className="whitespace-nowrap px-4 py-1.5 text-xs text-slate-600 dark:text-slate-400">{a.type}</td>
@@ -149,13 +132,7 @@ export function LiveAccountsLedgerPreview() {
             key={a.id}
             className="space-y-2.5 rounded-xl border border-slate-200 p-3.5 dark:border-slate-700"
           >
-            <div className="flex items-start gap-2.5">
-              <span
-                className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-[11px] font-bold text-white shadow-xs"
-                style={{ backgroundColor: CLASS_TINT[a.cls] }}
-              >
-                {a.name.charAt(0)}
-              </span>
+            <div className="flex items-start justify-between gap-2.5">
               <span className="min-w-0 flex-1">
                 <span className="block truncate text-sm font-semibold text-slate-900 dark:text-white">{a.name}</span>
                 <span className="mt-0.5 block text-xs text-slate-500 dark:text-slate-400">

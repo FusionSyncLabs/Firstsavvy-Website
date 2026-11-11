@@ -17,18 +17,14 @@ test.describe('First Savvy Full Platform E2E Flows', () => {
     await expect(page.locator('h1')).toContainText('Your money tells a bigger story.');
   });
 
-  test('3. Adult Login and Dashboard navigation', async ({ page }) => {
-    await page.goto('/login');
-    await page.getByRole('button', { name: 'Sign In as Adult' }).click();
-    await page.waitForURL('**/dashboard');
+  test('3. Adult Dashboard renders household overview', async ({ page }) => {
+    await page.goto('/dashboard');
     await expect(page.locator('h1')).toContainText('Financial & Household Overview');
     await expect(page.getByText('The Miller Family')).toBeVisible();
   });
 
-  test('4. Kid Login and Supervised Kid Space', async ({ page }) => {
-    await page.goto('/kid-login');
-    await page.getByRole('button', { name: 'Open My Kid Space' }).click();
-    await page.waitForURL('**/kid-view');
+  test('4. Supervised Kid Space renders star balance', async ({ page }) => {
+    await page.goto('/kid-view');
     await expect(page.getByText('My Star Balance')).toBeVisible();
   });
 

@@ -16,6 +16,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/beta-terms',
     '/children-privacy',
     '/cookies',
+    '/financial-disclosure',
+    '/deletion-policy',
   ];
 
   return publicRoutes.map((route) => ({

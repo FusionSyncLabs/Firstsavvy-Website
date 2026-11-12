@@ -120,6 +120,16 @@ export function MarketingFooter() {
                   Cookie Preferences
                 </Link>
               </li>
+              <li>
+                <Link href="/financial-disclosure" className={footerLink}>
+                  Financial Data Disclosure
+                </Link>
+              </li>
+              <li>
+                <Link href="/deletion-policy" className={footerLink}>
+                  Account &amp; Data Deletion
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -127,7 +137,7 @@ export function MarketingFooter() {
         {/* Bottom bar */}
         <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between text-xs sm:text-sm text-slate-500">
           <p className="min-w-0 text-center sm:text-left text-balance">
-            © {new Date().getFullYear()} First Savvy, Inc. All rights reserved. First Savvy is a financial management platform, not a bank.
+            © {new Date().getFullYear()} First Savvy LLC • Eagle, Idaho. All rights reserved. First Savvy is a financial management platform, not a bank.
           </p>
         </div>
       </div>
